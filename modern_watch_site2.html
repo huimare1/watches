@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luxury Time</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Libre+Baskerville&display=swap');
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Libre Baskerville', serif;
+    }
+
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #000;
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 2.5rem;
+      color: gold;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .welcome {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-image: url('https://images.unsplash.com/photo-1523275335684-37898b6baf30');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      flex-direction: column;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    .welcome h1 {
+      font-size: 4rem;
+      margin: 0;
+      color: white;
+      text-shadow: 2px 2px 10px black;
+    }
+
+    .welcome p {
+      font-size: 1.5rem;
+      color: #ccc;
+      margin-top: 10px;
+    }
+
+    .enter-btn {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 1rem;
+      border: none;
+      background-color: gold;
+      color: black;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .enter-btn:hover {
+      background-color: white;
+    }
+
+    .container {
+      display: none;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 40px;
+      background-color: #111;
+    }
+
+    .card {
+      background-color: #1a1a1a;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(255,255,255,0.05);
+      overflow: hidden;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .price {
+      font-size: 1.5rem;
+      margin: 10px 0;
+      color: gold;
+    }
+
+    .official-link, .cart-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: gold;
+      color: black;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .official-link:hover, .cart-btn:hover {
+      background-color: white;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #000;
+      color: white;
+    }
+
+    .instagram-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .instagram-link img {
+      width: 30px;
+      margin-right: 10px;
+    }
+
+    .instagram-link a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .checkout-form {
+      display: none;
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #111;
+      border-radius: 15px;
+    }
+
+    .checkout-form input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .checkout-form button {
+      padding: 12px 20px;
+      font-size: 1rem;
+      background: gold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .thank-you {
+      display: none;
+      text-align: center;
+      font-size: 2rem;
+      margin-top: 50px;
+      animation: fadeIn 2s ease-in-out;
+      color: gold;
+    }
+  </style>
+</head>
+<body>
+  <iframe style="display:none" allow="autoplay" src="https://screenapp.io/e/w7_KmKwu3Q?autoplay=1&volume=0.5"></iframe>
+
+  <div class="welcome" id="welcome">
+    <h1>Welcome to Luxury Time</h1>
+    <p>Discover timeless elegance</p>
+    <button class="enter-btn" onclick="enterSite()">Enter</button>
+  </div>
+
+  <header id="main-header" style="display:none;">
+    Our Exclusive Watch Collection
+  </header>
+
+  <div class="container" id="watch-grid">
+    <div class="card">
+      <img src="omega-seamaster-aqua-terra-150m-co-axial-master-chronometer-41-mm-22010412103002-a8411d.avif" alt="Omega Seamaster Aqua Terra">
+      <div class="price">€7,000</div>
+      <a class="official-link" href="https://www.omegawatches.com/en-us/watch-omega-seamaster-aqua-terra-150m-co-axial-master-chronometer-41-mm-22010412103002" target="_blank">Official Omega Site</a>
+      <button class="cart-btn" onclick="showCheckout('Omega Seamaster Aqua Terra')">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="professional-watches-submariner-front-facing-roller_240902_rolex_submariner_d1_face.avif" alt="Rolex Submariner">
+      <div class="price">€9,500</div>
+      <a class="official-link" href="https://www.rolex.com/watches/submariner.html" target="_blank">Official Rolex Site</a>
+      <button class="cart-btn" onclick="showCheckout('Rolex Submariner')">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="watch-54.avif" alt="Audemars Piguet Royal Oak">
+      <div class="price">€35,000</div>
+      <a class="official-link" href="https://www.audemarspiguet.com/com/en/watch-collection/royal-oak.html" target="_blank">Official AP Site</a>
+      <button class="cart-btn" onclick="showCheckout('Audemars Piguet Royal Oak')">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="checkout-form" id="checkout">
+    <h2 style="text-align:center">Checkout</h2>
+    <form action="mailto:laur201028@outlook.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <input type="text" name="address" placeholder="Shipping Address" required>
+      <input type="text" name="product" id="productField" readonly>
+      <button type="submit" onclick="showThankYou()">Submit Order</button>
+    </form>
+  </div>
+
+  <div class="thank-you" id="thankyou">
+    <p>🎉 Thank you for your order!</p>
+  </div>
+
+  <footer id="footer" style="display:none;">
+    <div class="instagram-link">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+      <a href="https://www.instagram.com/olarita.l?igsh=MTYxam0zbXFiZjg2cQ%3D%3D&utm_source=qr" target="_blank">@olarita.l</a>
+    </div>
+  </footer>
+
+  <script>
+    function enterSite() {
+      document.getElementById('welcome').style.display = 'none';
+      document.getElementById('main-header').style.display = 'block';
+      document.getElementById('watch-grid').style.display = 'grid';
+      document.getElementById('footer').style.display = 'block';
+    }
+
+    function showCheckout(productName) {
+      document.getElementById('watch-grid').style.display = 'none';
+      document.getElementById('checkout').style.display = 'block';
+      document.getElementById('productField').value = productName;
+    }
+
+    function showThankYou() {
+      setTimeout(() => {
+        document.getElementById('checkout').style.display = 'none';
+        document.getElementById('thankyou').style.display = 'block';
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
